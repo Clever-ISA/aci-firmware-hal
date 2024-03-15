@@ -15,4 +15,8 @@ pub trait Device {
     /// Handles a read from the device.
     fn read(&self, addr: u16 /* actually a u12 */, port: &dyn DevicePort) -> u32;
     fn write(&self, addr: u16 /* actually a u12 */, val: u32, port: &dyn DevicePort);
+
+    fn poll_interrupts(&self, port: &dyn DevicePort) {}
+
+    fn interrupt_device(&self, port: &dyn DevicePort) {}
 }
